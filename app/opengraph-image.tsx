@@ -1,5 +1,6 @@
 import { ImageResponse } from 'next/og'
 
+export const alt = 'Harsh Chandravanshi — Software Engineer'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -96,7 +97,7 @@ export default function Image() {
             marginBottom: 40,
           }}
         >
-          Full Stack Developer · React · Next.js · Node.js
+          Software Engineer · React · Next.js · Node.js
         </div>
 
         {/* Bottom tags */}

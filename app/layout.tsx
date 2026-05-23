@@ -12,13 +12,13 @@ const siteUrl = 'https://harshchandravanshi.com'
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Harsh Chandravanshi — Full Stack Developer',
+    default: 'Harsh Chandravanshi — Software Engineer',
     template: '%s | Harsh Chandravanshi',
   },
   description:
-    'Full Stack Developer specializing in React, Next.js, and Node.js. Building beautiful, functional web and mobile experiences.',
+    'Software Engineer specializing in React, Next.js, and Node.js. Building beautiful, functional web and mobile experiences.',
   keywords: [
-    'Full Stack Developer',
+    'Software Engineer',
     'React Developer',
     'Next.js',
     'Node.js',
@@ -34,25 +34,16 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: siteUrl,
     siteName: 'Harsh Chandravanshi',
-    title: 'Harsh Chandravanshi — Full Stack Developer',
+    title: 'Harsh Chandravanshi — Software Engineer',
     description:
-      'Full Stack Developer specializing in React, Next.js, and Node.js. Building beautiful, functional web and mobile experiences.',
-    images: [
-      {
-        url: '/opengraph-image',
-        width: 1200,
-        height: 630,
-        alt: 'Harsh Chandravanshi — Full Stack Developer',
-      },
-    ],
+      'Software Engineer specializing in React, Next.js, and Node.js. Building beautiful, functional web and mobile experiences.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Harsh Chandravanshi — Full Stack Developer',
+    title: 'Harsh Chandravanshi — Software Engineer',
     description:
-      'Full Stack Developer specializing in React, Next.js, and Node.js.',
+      'Software Engineer specializing in React, Next.js, and Node.js.',
     creator: '@harshcvb',
-    images: ['/opengraph-image'],
   },
   robots: {
     index: true,
