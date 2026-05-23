@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Harsh Chandravanshi — Portfolio v3
+
+Personal portfolio website for [harshchandravanshi.com](https://harshchandravanshi.com) — built with Next.js 16, React 19, TypeScript, and Tailwind CSS v4.
+
+## Sections
+
+- **Hero** — intro with animated typewriter roles
+- **About** — bio, stats (projects, lines of code, coding questions)
+- **Skills** — categorised tech stack (Frontend, Mobile, Backend, Database, CS, Language, Tools)
+- **Projects** — 8 featured projects with detail pages (`/projects/[slug]`)
+- **Experience** — FamApp, RecordBook (YC-W22), Secure Meters Limited
+- **Education** — B.Tech, CTAE (2019–2023)
+- **Now** — what I'm currently learning and building
+- **Contact** — EmailJS form with Google reCAPTCHA v2
+
+## Tech Stack
+
+| Layer | Choice |
+|---|---|
+| Framework | Next.js 16 (App Router) |
+| Language | TypeScript 5 |
+| Styling | Tailwind CSS v4 |
+| Animations | Framer Motion 12 |
+| Theming | next-themes (dark / light) |
+| Contact | EmailJS + Google reCAPTCHA v2 |
+| Analytics | Vercel Analytics + Speed Insights + Google Analytics 4 |
+| Deployment | Vercel |
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
+cp .env.local.example .env.local   # fill in your keys (see below)
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copy `.env.local.example` to `.env.local` and fill in:
 
-## Learn More
+| Variable | Where to get it |
+|---|---|
+| `NEXT_PUBLIC_EMAIL_SERVICE` | [EmailJS dashboard](https://dashboard.emailjs.com) |
+| `NEXT_PUBLIC_EMAIL_TEMPLATE` | EmailJS dashboard |
+| `NEXT_PUBLIC_EMAIL_PUBLICKEY` | EmailJS dashboard |
+| `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` | [Google reCAPTCHA admin](https://www.google.com/recaptcha/admin) |
+| `NEXT_PUBLIC_GOOGLE_ANALYTICS` | [Google Analytics](https://analytics.google.com) (GA4 measurement ID) |
 
-To learn more about Next.js, take a look at the following resources:
+## Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm dev      # development server
+pnpm build    # production build
+pnpm start    # serve production build
+pnpm lint     # ESLint
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
+```
+app/
+├── components/
+│   ├── sections/   # Hero, About, Skills, Projects, Experiences, Education, Now, Contact
+│   ├── ui/         # Nav, ThemeToggle, GoUpButton, AnimateIn, Typewriter, …
+│   └── providers/  # ThemeProvider
+├── lib/
+│   ├── data.ts         # all site content (edit here to update copy)
+│   └── definitions.ts  # TypeScript types
+├── projects/[slug]/    # project detail pages
+├── layout.tsx
+└── page.tsx
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All site content lives in [app/lib/data.ts](app/lib/data.ts) — update that file to change copy, projects, experience, or skills without touching components.
