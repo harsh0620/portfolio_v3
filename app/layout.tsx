@@ -1,49 +1,51 @@
-import type { Metadata } from 'next'
-import Script from 'next/script'
-import './globals.css'
-import { ThemeProvider } from '@/app/components/providers/theme-provider'
-import { Nav } from '@/app/components/ui/nav'
-import { GoUpButton } from '@/app/components/ui/go-up-button'
+import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import Script from "next/script";
+import "./globals.css";
+import { ThemeProvider } from "@/app/components/providers/theme-provider";
+import { Nav } from "@/app/components/ui/nav";
+import { GoUpButton } from "@/app/components/ui/go-up-button";
 
-const gaId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS
+const gaId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
 
-const siteUrl = 'https://harshchandravanshi.com'
+const siteUrl = "https://harshchandravanshi.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Harsh Chandravanshi — Software Engineer',
-    template: '%s | Harsh Chandravanshi',
+    default: "Harsh Chandravanshi — Software Engineer",
+    template: "%s | Harsh Chandravanshi",
   },
   description:
-    'Software Engineer specializing in React, Next.js, and Node.js. Building beautiful, functional web and mobile experiences.',
+    "Software Engineer specializing in React, Next.js, and Node.js. Building beautiful, functional web and mobile experiences.",
   keywords: [
-    'Software Engineer',
-    'React Developer',
-    'Next.js',
-    'Node.js',
-    'TypeScript',
-    'Harsh Chandravanshi',
-    'Web Developer India',
-    'Bengaluru Developer',
+    "Software Engineer",
+    "React Developer",
+    "Next.js",
+    "Node.js",
+    "TypeScript",
+    "Harsh Chandravanshi",
+    "Web Developer India",
+    "Bengaluru Developer",
   ],
-  authors: [{ name: 'Harsh Chandravanshi', url: siteUrl }],
-  creator: 'Harsh Chandravanshi',
+  authors: [{ name: "Harsh Chandravanshi", url: siteUrl }],
+  creator: "Harsh Chandravanshi",
   openGraph: {
-    type: 'website',
-    locale: 'en_US',
+    type: "website",
+    locale: "en_US",
     url: siteUrl,
-    siteName: 'Harsh Chandravanshi',
-    title: 'Harsh Chandravanshi — Software Engineer',
+    siteName: "Harsh Chandravanshi",
+    title: "Harsh Chandravanshi — Software Engineer",
     description:
-      'Software Engineer specializing in React, Next.js, and Node.js. Building beautiful, functional web and mobile experiences.',
+      "Software Engineer specializing in React, Next.js, and Node.js. Building beautiful, functional web and mobile experiences.",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Harsh Chandravanshi — Software Engineer',
+    card: "summary_large_image",
+    title: "Harsh Chandravanshi — Software Engineer",
     description:
-      'Software Engineer specializing in React, Next.js, and Node.js.',
-    creator: '@harshcvb',
+      "Software Engineer specializing in React, Next.js, and Node.js.",
+    creator: "@harshcvb",
   },
   robots: {
     index: true,
@@ -51,18 +53,23 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="h-full" suppressHydrationWarning data-scroll-behavior="smooth">
+    <html
+      lang="en"
+      className="h-full"
+      suppressHydrationWarning
+      data-scroll-behavior="smooth"
+    >
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         <ThemeProvider>
           <Nav />
@@ -85,7 +92,9 @@ export default function RootLayout({
             </Script>
           </>
         )}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
-  )
+  );
 }
